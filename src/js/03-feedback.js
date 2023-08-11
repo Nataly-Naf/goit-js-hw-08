@@ -9,7 +9,7 @@ console.log(submitBtn)
 
 updateOutput();
         function updateOutput() {
-        const savedObj = JSON.parse(localStorage.getItem('feedback-form-state'))
+            const savedObj = JSON.parse(localStorage.getItem('feedback-form-state')) ?? {};
         console.log(savedObj)
         feedbackEmail.value = savedObj.email || "";
         feedbackMsg.value = savedObj.message || "";
