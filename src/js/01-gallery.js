@@ -11,6 +11,7 @@ const galleryItemsContainer = document.querySelector('.gallery')
 console.log(galleryItemsContainer)
 galleryItemsContainer.insertAdjacentHTML('beforeend', galleryItemsMarkup)
 
+
 function makeGalleryItemsMarkup(items) {
     return items.map(({preview, original, description})=>{ return `
         <li class="gallery__item">
