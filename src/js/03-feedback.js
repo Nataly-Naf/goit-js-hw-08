@@ -17,24 +17,33 @@ updateOutput();
 const throttledFormHandler = throttle(formHandler, 500);
 feedback.addEventListener('input', throttledFormHandler);
 
-
 function formHandler() {
     const feedbackData = {
        email: feedbackEmail.value,
         message: feedbackMsg.value
     }
-    const feedbackDataJSON = JSON.stringify(feedbackData)
-    localStorage.setItem('feedback-form-state', feedbackDataJSON)
+    const feedbackDataJSON = JSON.stringify(feedbackData) 
+    localStorage.setItem('feedback-form-state', feedbackDataJSON ) 
+    
     }
 submitBtn.addEventListener('click', onSubmitBtn) 
 function onSubmitBtn(event) {
+    
     event.preventDefault();
-        const savedObj = JSON.parse(localStorage.getItem('feedback-form-state'));
-    console.log(savedObj);
+    if (!feedbackEmail.value || !feedbackMsg.value) {
+        return
+    }
+   
+ 
+    const savedObj = JSON.parse(localStorage.getItem('feedback-form-state')) ;
+        console.log(savedObj);
     localStorage.removeItem('feedback-form-state')
     feedbackEmail.value = "";
     feedbackMsg.value = "";
-        } 
+
+    }  
+        
+        
   
     
         
